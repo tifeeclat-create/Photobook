@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photobook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <div id="loading">Loading Photobook…</div>
+    <div id="error"></div>
+
+    <div id="viewer">
+        <div id="track"></div>
+    </div>
+
+    <div id="toolbar">
+        <button id="prev">◀</button>
+        <span id="counter">–</span>
+        <button id="next">▶</button>
+        <button id="zoomOut">−</button>
+        <button id="zoomIn">+</button>
+        <button id="fullscreen">⛶</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

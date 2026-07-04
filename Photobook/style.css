@@ -1,0 +1,143 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #111;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+#loading {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: white;
+    background: #111;
+    z-index: 50;
+}
+
+#error {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    color: #ff6b6b;
+    background: #111;
+    z-index: 60;
+    padding: 20px;
+    text-align: center;
+    font-size: 15px;
+    white-space: pre-wrap;
+}
+
+#viewer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #111;
+}
+
+#track {
+    display: flex;
+    height: 100%;
+    /* width is set dynamically in JS: numPages * 100vw */
+    transition: transform 0.4s ease;
+}
+
+.view {
+    flex: 0 0 100vw;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    cursor: grab;
+    touch-action: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .view:active {
+        cursor: grabbing;
+    }
+
+.view-inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    /* aspect-ratio is set per-view in JS, from actual PDF page dimensions */
+    will-change: transform;
+    margin: auto;
+}
+
+.page-half {
+    flex: 1 1 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+    min-width: 0;
+}
+
+    .page-half.single {
+        flex: 1 1 100%;
+    }
+
+    .page-half img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        user-select: none;
+        -webkit-user-drag: none;
+        pointer-events: none;
+    }
+
+    .page-half:not(.single) img {
+        object-fit: cover;
+    }
+
+#toolbar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 60;
+}
+
+#counter {
+    color: white;
+    font-size: 14px;
+    min-width: 60px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background: #222;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+    button:hover {
+        background: #444;
+    }
+
+    button:disabled {
+        opacity: 0.35;
+        cursor: default;
+    }
